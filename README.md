@@ -2,6 +2,8 @@
 
 This repository demonstrates a solution to the client-side flickering issue with PostHog feature flags in Next.js applications using the App Router.
 
+![Demo](./assets/demo-screenshot.png)
+
 ## The Problem
 
 When using PostHog feature flags in a Next.js application, you might experience a "flicker" where the feature flag initially renders as `false` and then switches to `true` after hydration. This happens even when using PostHog's bootstrap option, which is supposed to prevent this issue.
