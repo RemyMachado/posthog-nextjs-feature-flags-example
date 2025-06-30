@@ -17,7 +17,6 @@ export default async function RootLayout({
 }>) {
   // Fetch feature flags from the server
   const serverFeatureFlags = await getServerFeatureFlags('demo-distinct-id');
-  console.log('[LAYOUT] Server feature flags:', serverFeatureFlags);
   
   return (
     <html lang="en">

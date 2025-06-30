@@ -9,7 +9,7 @@ export function FeatureFlagList({ flags }: FeatureFlagListProps) {
     <div className="space-y-4">
       {flags.map((flag) => (
         <FeatureFlag 
-          key={flag.name} 
+          key={`${flag.name} - ${flag.description}`}
           flag={flag} 
         />
       ))}

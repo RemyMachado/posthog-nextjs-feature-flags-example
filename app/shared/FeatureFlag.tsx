@@ -2,7 +2,7 @@
 export type FeatureFlagItem = {
   name: string;
   description: string;
-  enabled: boolean;
+  enabled: boolean | undefined;
 }
 
 interface FeatureFlagProps {
@@ -18,12 +18,18 @@ export function FeatureFlag({ flag }: FeatureFlagProps) {
       </div>
       <div 
         className={`px-3 py-1 rounded-full text-sm ${
-          flag.enabled 
+          flag.enabled === true
             ? 'bg-[var(--success-bg)] text-[var(--success-text)]' 
-            : 'bg-[var(--error-bg)] text-[var(--error-text)]'
+            : flag.enabled === false
+              ? 'bg-[var(--error-bg)] text-[var(--error-text)]'
+              : 'bg-gray-200 text-gray-600'
           }`}
         >
-          {flag.enabled ? 'Enabled' : 'Disabled'}
+          {flag.enabled === true 
+            ? 'Enabled' 
+            : flag.enabled === false 
+              ? 'Disabled' 
+              : 'Undefined'}
         </div>
     </div>
   );

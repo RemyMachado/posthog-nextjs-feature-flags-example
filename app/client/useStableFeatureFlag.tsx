@@ -13,16 +13,12 @@ import { useContext } from 'react';
  * @returns boolean | undefined - The feature flag value
  */
 export function useStableFeatureFlag(flagName: string): boolean | undefined {
-  // Get PostHog client
   const posthog = usePostHog();
-  // Get our bootstrapped flags from context
   const { bootstrappedFlags } = useContext(FeatureFlagContext);
   
-  // If PostHog is available, check the flag
   if (posthog) {
     const isEnabled = posthog.isFeatureEnabled(flagName);
     
-    // If PostHog has a value, use it
     if (isEnabled !== undefined) {
       return isEnabled;
     }
