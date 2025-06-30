@@ -1,3 +1,6 @@
+_Note: We can't use Next.js' [instrumentation](https://nextjs.org/docs/app/guides/instrumentation), because this would create a mismatch error between the server and the client side.
+Instead we must rely on `React.Context`_
+
 # PostHog Feature Flag Flicker Fix
 
 This repository demonstrates a solution to the client-side flickering issue with PostHog feature flags in Next.js applications using the App Router.
